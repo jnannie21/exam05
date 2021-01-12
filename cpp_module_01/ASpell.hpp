@@ -6,13 +6,17 @@
 class ATarget;
 
 class ASpell {
+	std::string _name;
+	std::string _effects;
+
+
     public:
     ASpell();
     ASpell(ASpell const & other);
     ASpell const & operator=(ASpell const & rhs);
     virtual ~ASpell();
     
-    ASpell(std::string const & n, std::string const & e);
+    ASpell(std::string const & name, std::string const & effects);
     
     std::string getName() const;
     std::string getEffects() const;
@@ -21,9 +25,6 @@ class ASpell {
     
     void launch(ATarget const & target) const;
     
-private:
-    std::string name;
-    std::string effects;
 };
 
 #endif

@@ -3,80 +3,37 @@
 
 #include <string>
 #include <iostream>
+#include <list>
 #include "ASpell.hpp"
-#include "ATarget.hpp"
 
 class Warlock {
-public:
+	std::string _name;
+	std::string _title;
+
+	std::list<ASpell*> _prop;
+
     Warlock();
     Warlock(Warlock const & other);
     Warlock const & operator=(Warlock const & rhs);
-    virtual ~Warlock() {
-        std::cout << name << ": My job here is done!" << std::endl;
-    }
+
+public:
+    Warlock(std::string name, std::string title);
+
+	virtual ~Warlock();
+
+    std::string const & getName() const;
     
-    Warlock(std::string n, std::string t) : name(n), title(t), learned() {
-        std::cout << name << ": This looks like another boring day." << std::endl;
-    }
+    std::string const & getTitle() const;
     
-    std::string const & getName() const {
-        return name;
-    }
+    void setTitle(std::string const & t);
     
-    std::string const & getTitle() const {
-        return title;
-    }
-    
-    void setTitle(std::string const & t) {
-        title = t;
-    }
-    
-    void introduce() const {
-        std::cout << name << ": I am " << name << ", " << title << "!" << std::endl;
-    }
-    
-    void learnSpell(ASpell * spell) {
-        int i = 0;
-        while (learned[i])
-        {
-            if ((spell->getName() == learned[i]->getName()) || i == 999)
-                return ;
-            i++;
-        }
-        
-        learned[i] = spell;
-    }
-    
-    void forgetSpell( std::string name) {
-        int i = 0;
-        while (i < 1000)
-        {
-            if (learned[i] && name == learned[i]->getName())
-            {
-                learned[i] = NULL;
-                break ;
-            }
-            i++;
-        }
-    }
-    
-    void launchSpell(std::string name, ATarget & target) {
-        int i = 0;
-        while (i < 1000)
-        {
-            if (learned[i] && name == learned[i]->getName())
-            {
-                learned[i]->launch(target);
-                break ;
-            }
-            i++;
-        }
-    }
-    
-private:
-    std::string name;
-    std::string title;
-    ASpell *learned[1000];
+    void introduce() const;
+
+	void learnSpell(ASpell* spell);
+	void forgetSpell(std::string spell_name);
+	void launchSpell(std::string spell_name, ATarget & target);
+
+
 };
 
 #endif

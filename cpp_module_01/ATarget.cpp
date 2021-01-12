@@ -2,7 +2,7 @@
 #include "ASpell.hpp"
 #include <iostream>
 
-ATarget::ATarget() : type("") {
+ATarget::ATarget() {
     
 }
 
@@ -14,22 +14,16 @@ ATarget const & ATarget::operator=(ATarget const & rhs) {
     if (this == &rhs)
         return *this;
         
-    type = rhs.type;
+    _type = rhs._type;
     return *this;
 }
 
-ATarget::~ATarget() {
-    
-}
+ATarget::~ATarget() { }
 
-ATarget::ATarget(std::string const & t) : type(t) {
-    
-}
+ATarget::ATarget(std::string const & type) : _type(type) { }
 
-std::string const & ATarget::getType() const {
-    return type;
-}
+std::string const & ATarget::getType() const { return _type; }
 
 void ATarget::getHitBySpell(ASpell const & spell) const {
-    std::cout << type << " has been " << spell.getEffects() << "!" << std::endl;
+    std::cout << _type << " has been " << spell.getEffects() << "!" << std::endl;
 }

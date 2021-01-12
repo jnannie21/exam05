@@ -6,21 +6,10 @@
 
 class Fwoosh : public ASpell {
     public:
-    Fwoosh() : ASpell("Fwoosh", "fwooshed") { }
-    Fwoosh(Fwoosh const & other) : ASpell(other) { }
-    Fwoosh const & operator=(Fwoosh const & rhs) {
-        if (this == &rhs)
-            return *this;
-        
-        ASpell::operator=(rhs);
-        return *this;
-        
-    }
-    virtual ~Fwoosh() { }
+    Fwoosh();
+    ~Fwoosh();
     
-    virtual ASpell * clone() const {
-        return new Fwoosh(*this);
-    }
+    virtual Fwoosh * clone() const;
 
 };
 
