@@ -9,7 +9,7 @@ class Dummy : public ATarget {
     Dummy();
     ~Dummy();
     
-    virtual Dummy * clone() const;
+    virtual ATarget * clone() const;
     
 };
 
