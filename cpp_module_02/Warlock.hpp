@@ -5,12 +5,13 @@
 #include <iostream>
 #include <vector>
 #include "ASpell.hpp"
+#include "SpellBook.hpp"
 
 class Warlock {
 	std::string _name;
 	std::string _title;
 
-	std::vector<ASpell*> _prop;
+	SpellBook _book;
 
     Warlock();
     Warlock(Warlock const & other);

@@ -2,8 +2,6 @@
 #include "Fwoosh.hpp"
 #include "Dummy.hpp"
 
-//std::cout << "here" << std::endl;
-
 int main()
 {
 	Warlock richard("Richard", "the Titled");
